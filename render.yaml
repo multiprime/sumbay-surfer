@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: metro-dash-multiprime
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .

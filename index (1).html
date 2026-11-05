@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b36">
+  <title>Metro Dash — MultiPrime</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div><span class="logo">METRO<span>DASH</span></span><small>COURSE INFINIE</small></div>
+      <div class="stats">
+        <div>🪙 <b id="coins">0</b></div>
+        <div>🏁 <b id="score">0</b></div>
+      </div>
+    </header>
+
+    <section class="game-wrap">
+      <canvas id="game" width="900" height="600" aria-label="Jeu de course"></canvas>
+      <div class="overlay" id="startScreen">
+        <div class="panel">
+          <p class="eyebrow">PRÊT À COURIR ?</p>
+          <h1>Évite les obstacles.<br><span>Ramasse les pièces.</span></h1>
+          <label for="nickname">Ton pseudo</label>
+          <input id="nickname" maxlength="18" placeholder="Entre ton pseudo" autocomplete="nickname">
+          <button id="startBtn">JOUER</button>
+          <p class="help">← → changer de voie · ↑ sauter · ↓ glisser</p>
+        </div>
+      </div>
+      <div class="overlay hidden" id="gameOver">
+        <div class="panel">
+          <p class="eyebrow">FIN DE LA COURSE</p>
+          <h1>Bien joué !</h1>
+          <p>Score : <b id="finalScore">0</b></p>
+          <button id="restartBtn">REJOUER</button>
+        </div>
+      </div>
+      <div class="hud-tip">← → voies &nbsp; ↑ saut &nbsp; ↓ glissade</div>
+    </section>
+
+    <section class="below">
+      <div><strong>Comment jouer</strong><p>Change de voie pour éviter les barrières et les trains. Attrape les pièces pour augmenter ton total.</p></div>
+      <button class="secondary" id="soundBtn">🔊 Son : activé</button>
+    </section>
+  </main>
+
+  <button class="admin-tab hidden" id="adminTab">⚙ ADMIN</button>
+  <aside class="admin-panel hidden" id="adminPanel">
+    <div class="admin-head"><div><small>ACCÈS SPÉCIAL</small><h2>👑 MULTIPRIME</h2></div><button id="closeAdmin" aria-label="Fermer">✕</button></div>
+    <p class="admin-note">Les pouvoirs sont actifs uniquement pendant ta session.</p>
+    <label class="toggle"><span>Invincibilité</span><input type="checkbox" id="godMode"></label>
+    <label class="toggle"><span>Pièces illimitées</span><input type="checkbox" id="infiniteCoins"></label>
+    <label class="toggle"><span>Aimant à pièces</span><input type="checkbox" id="magnet"></label>
+    <label class="toggle"><span>Supprimer les obstacles</span><input type="checkbox" id="noObstacles"></label>
+    <label class="range">Vitesse <b id="speedValue">1×</b><input type="range" id="speed" min="1" max="3" step=".25" value="1"></label>
+    <button class="secondary full" id="addCoins">+ 10 000 pièces</button>
+    <button class="secondary full" id="resetPowers">Réinitialiser les pouvoirs</button>
+  </aside>
+
+  <script src="game.js"></script>
+</body>
+</html>
